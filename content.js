@@ -41,8 +41,9 @@ window.IIQ = {
 
   /* Social hub: add more links here later. Linktree is the primary hub. */
   socials: [
-    { label: "Linktree",  handle: "linktr.ee/imageiqstudio", url: "https://linktr.ee/imageiqstudio", primary: true },
-    { label: "Instagram", handle: "@imageiqstudio",          url: "https://www.instagram.com/imageiqstudio/" }
+    { label: "Instagram", handle: "@imageiqstudio",                 url: "https://www.instagram.com/imageiqstudio/", icon: "instagram" },
+    { label: "Facebook",  handle: "facebook.com/ImageIQStudio",     url: "https://www.facebook.com/ImageIQStudio/",  icon: "facebook" },
+    { label: "Linktree",  handle: "linktr.ee/imageiqstudio",        url: "https://linktr.ee/imageiqstudio",          icon: "link", primary: true }
   ],
 
   nav: [
@@ -52,6 +53,7 @@ window.IIQ = {
     { label: "Portfolio", route: "portfolio" },
     { label: "Films",     route: "films" },
     { label: "Packages",  route: "packages" },
+    { label: "FAQs",      route: "faqs" },
     { label: "Contact",   route: "contact" }
   ],
 
@@ -247,6 +249,37 @@ window.IIQ = {
   testimonials: {
     heading: "KIND WORDS",
     items: []
+  },
+
+  /* ---------- FAQs (edit freely; keep answers accurate to how ImageIQ Studio actually works) ---------- */
+  faqs: {
+    heading: "FREQUENTLY ASKED QUESTIONS",
+    intro: "Answers to what people usually ask before booking. Don't see yours? Send us a message.",
+    items: [
+      { q: "How do we book a session?", a: "Send an inquiry through the Contact page or WhatsApp with your event type, date and location. We'll reply to confirm availability and talk through coverage and package options before anything is booked." },
+      { q: "Do you require a deposit?", a: "Yes, a deposit is required to secure your date once you confirm a package. The remaining balance is due as agreed at the time of booking. Exact terms are shared with your quotation." },
+      { q: "How far in advance should we book?", a: "As early as possible, especially for weddings and peak-season dates, since our calendar fills up. If your date is close, reach out anyway and we'll check availability." },
+      { q: "How long until we receive our photos and film?", a: "Delivery timelines depend on the package and season and are confirmed at booking. We'll keep you updated if anything changes." },
+      { q: "Do you travel outside Islamabad?", a: "Yes, we take on projects across Pakistan. Travel and accommodation for out-of-city coverage are discussed as part of your quotation." },
+      { q: "Can we customize a package?", a: "Yes. If a standard package doesn't fit your event, use the custom quote option on the Packages page and tell us what you're planning." },
+      { q: "What do we receive at the end?", a: "Edited, color-graded photographs delivered through an online gallery, and for videography packages, a highlight film and any reels included in your package." },
+      { q: "What is your cancellation or rescheduling policy?", a: "Let us know as early as possible if your date changes. Specific terms depend on how close you are to the event date and are outlined in your booking confirmation." }
+    ]
+  },
+
+  /* ---------- Privacy policy ---------- */
+  privacy: {
+    updated: "September 2026",
+    intro: "This page explains what information ImageIQ Studio collects through this website and how it is used.",
+    sections: [
+      { h: "Information we collect", p: "When you submit the contact form, we collect the details you provide: your name, email, phone number, service of interest, event date, location, budget and message. We do not collect payment information through this website." },
+      { h: "How we use it", p: "We use this information only to respond to your inquiry, discuss your project and, if you choose to proceed, to plan and deliver your booking. We do not sell, rent or share your information with third parties for marketing purposes." },
+      { h: "Email delivery", p: "Contact form submissions are sent to our inbox using Resend, an email delivery service. Resend processes the message only to deliver it to us and does not use it for any other purpose." },
+      { h: "Cookies and local storage", p: "This website does not use tracking cookies or analytics. Your browser may store small technical preferences locally on your own device (for example, whether you've dismissed the mobile menu); this data never leaves your device and we cannot see it." },
+      { h: "Photography and videography", p: "If you book a session with us, any photographs or footage captured are handled according to the terms agreed at booking. We do not publish client work publicly without permission." },
+      { h: "Your rights", p: "You can ask us at any time what information we hold about you, or ask us to delete it, by emailing us at the address below." },
+      { h: "Contact", p: "Questions about this policy can be sent to imageiqstudio1@gmail.com." }
+    ]
   },
 
   /* ---------- Contact page ---------- */
