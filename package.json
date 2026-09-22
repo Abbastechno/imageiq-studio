@@ -1,0 +1,7 @@
+{
+  "name": "imageiq-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ImageIQ Studio website: static site plus a serverless contact endpoint.",
+  "engines": { "node": ">=18" }
+}
