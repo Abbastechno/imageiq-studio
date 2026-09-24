@@ -169,6 +169,7 @@ html.has-cur.fm-open, html.has-cur.fm-open * { cursor: auto !important; }
 .hero-reveal { position: absolute; inset: 0; clip-path: inset(46% 0 46% 0); animation: open 2s var(--ease) .15s forwards; }
 @keyframes open { to { clip-path: inset(0); } }
 .hero-kb { position: absolute; inset: -6%; animation: kb 38s ease-in-out infinite alternate; }
+.hero-kb img, .hero-kb picture { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 @keyframes kb { from { transform: scale(1) translate3d(0,0,0); } to { transform: scale(1.08) translate3d(-1.6%,-1%,0); } }
 .hero-ph { position: absolute; inset: 0; }
 .bokeh { position: absolute; inset: 0; transform: translate3d(calc(var(--mx, 0) * -16px), calc(var(--my, 0) * -12px), 0); transition: transform .9s var(--ease); }
@@ -329,6 +330,13 @@ section { position: relative; }
 .about-i { grid-column: 8 / 13; aspect-ratio: 4/5; }
 .facts { display: flex; gap: 48px; margin-top: 44px; flex-wrap: wrap; }
 .facts b { display: block; font-family: var(--serif); font-weight: 400; font-size: 3rem; line-height: 1; }
+
+/* Team */
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 3vw, 36px); }
+.team-card figcaption { margin-top: 16px; display: grid; gap: 4px; }
+.team-card .tn { font-family: var(--serif); font-size: 1.3rem; line-height: 1.15; }
+@media (max-width: 860px) { .team-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .team-grid { grid-template-columns: 1fr 1fr; gap: 18px; } }
 
 /* Process */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 3vw, 48px); }
@@ -705,6 +713,16 @@ function aboutHTML() {
     A.copy.map(function (p) { return '<p class="fu" data-rv>' + esc(p) + '</p>'; }).join('') + facts + '</div>' +
     '<div class="fr rv about-i" data-rv><span class="par" data-par>' + media(A.image, A.image.alt, '(min-width:860px) 40vw, 100vw', 'about') + '</span></div></div></section>';
 }
+function teamHTML() {
+  var T = D.team;
+  var body = T.members && T.members.length
+    ? '<div class="team-grid">' + T.members.map(function (m) {
+        return '<figure class="team-card"><span class="fr team-ph" style="aspect-ratio:4/5">' + media(m, m.alt || m.name, '(min-width:860px) 22vw, 44vw', m.name) + '</span>' +
+          '<figcaption><span class="tn">' + esc(m.name) + '</span><span class="lbl">' + esc(m.role) + '</span></figcaption></figure>';
+      }).join('') + '</div>'
+    : '<p class="tm-empty">Team profiles are on their way.</p>';
+  return '<section class="pad" id="team" aria-labelledby="team-h" style="padding-top:0"><div class="wrap"><div class="head"><span class="lbl">Our people</span>' + lines([T.heading], 'h2', 'h-l', 'id="team-h"') + '<p class="lead fu" data-rv>' + esc(T.intro) + '</p></div>' + body + '</div></section>';
+}
 function processHTML() {
   return '<section class="pad" id="process" aria-labelledby="pr-h" style="padding-top:0"><div class="wrap"><div class="head"><span class="lbl">Our process</span>' + lines(['FROM FIRST HELLO', 'TO FINAL FRAME'], 'h2', 'h-l', 'id="pr-h"') + '</div>' +
     '<ol class="steps">' + D.process.map(function (s) { return '<li class="step fu" data-rv><span class="n">' + esc(s.n) + '</span><h3>' + esc(s.title) + '</h3><p>' + esc(s.text) + '</p></li>'; }).join('') + '</ol></div></section>';
@@ -736,7 +754,7 @@ function faqHTML() {
   return '<section class="pad" id="faqs" aria-labelledby="faq-h" style="padding-top:0"><div class="wrap"><div class="head"><span class="lbl">Good to know</span>' + lines([F.heading], 'h2', 'h-l', 'id="faq-h"') + '<p class="lead fu" data-rv>' + esc(F.intro) + '</p></div><div class="faq-list">' + items + '</div></div></section>';
 }
 function homeHTML() {
-  return heroHTML() + introHTML() + philoHTML() + servicesHTML() + brkHTML(D.breaks.one, 'brk1') + portfolioHTML() + storiesHTML() + filmsHTML() + brkHTML(D.breaks.two, 'brk2') + aboutHTML() + processHTML() + packagesHTML() + testimonialsHTML() + faqHTML() + brkHTML(D.breaks.three, 'brk3', true);
+  return heroHTML() + introHTML() + philoHTML() + servicesHTML() + brkHTML(D.breaks.one, 'brk1') + portfolioHTML() + storiesHTML() + filmsHTML() + brkHTML(D.breaks.two, 'brk2') + aboutHTML() + teamHTML() + processHTML() + packagesHTML() + testimonialsHTML() + faqHTML() + brkHTML(D.breaks.three, 'brk3', true);
 }
 function privacyHTML() {
   var P = D.privacy;
@@ -802,7 +820,7 @@ function afterRoute(r, page, instant) {
   if (page === 'contact') { applyPrefill(); window.scrollTo(0, 0); var h = $('#c-h'); if (h) h.focus({ preventScroll: true }); return; }
   if (page === 'privacy') { window.scrollTo(0, 0); var hp = $('#p-h'); if (hp) hp.focus({ preventScroll: true }); return; }
   if (!r) { if (!instant) window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); return; }
-  var map = { about: 'about', services: 'services', portfolio: 'portfolio', films: 'films', packages: 'packages', intro: 'intro', stories: 'stories', process: 'process', faqs: 'faqs' };
+  var map = { about: 'about', services: 'services', portfolio: 'portfolio', films: 'films', packages: 'packages', intro: 'intro', stories: 'stories', process: 'process', faqs: 'faqs', team: 'team' };
   setTimeout(function () { scrollToId(map[r] || r, instant); }, instant ? 60 : 0);
 }
 
