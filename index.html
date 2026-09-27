@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ImageIQ Studio | Professional Photography & Videography</title>
 <meta name="description" content="ImageIQ Studio specializes in professional photography, videography and creative visual production, capturing meaningful moments, events, brands and stories.">
-<meta name="theme-color" content="#070707">
+<meta name="theme-color" content="#FFFFFF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ImageIQ Studio">
 <meta property="og:title" content="ImageIQ Studio | Professional Photography & Videography">
@@ -33,15 +33,15 @@
 </script>
 <style>
 :root {
-  --black: #FAF7F1;
+  --black: #FFFFFF;
   --near: #FFFFFF;
-  --char: #F0EAE0;
-  --char2: #E7DFCF;
+  --char: #F4F1EA;
+  --char2: #EAE4D6;
   --white: #ffffff;
-  --off: #211D16;
-  --muted: rgba(33,29,22,.64);
-  --line: rgba(33,29,22,.14);
-  --champ: #8A6B3E;
+  --off: #17140F;
+  --muted: rgba(23,20,15,.6);
+  --line: rgba(23,20,15,.12);
+  --champ: #A9772F;
   --photo-fg: #FBF8F1;
   --photo-muted: rgba(251,248,241,.78);
   --serif: "Cormorant Garamond", "Times New Roman", Georgia, serif;
@@ -141,8 +141,9 @@ html.has-cur.fm-open, html.has-cur.fm-open * { cursor: auto !important; }
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
   transition: padding .45s var(--ease), background .45s, backdrop-filter .45s, border-color .45s;
   border-bottom: 1px solid transparent;
+  background: rgba(255,255,255,.72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
 }
-.nav.solid { padding-top: calc(env(safe-area-inset-top, 0px) + 12px); padding-bottom: 12px; background: rgba(250,247,241,.88); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border-color: var(--line); }
+.nav.solid { padding-top: calc(env(safe-area-inset-top, 0px) + 12px); padding-bottom: 12px; background: rgba(255,255,255,.92); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border-color: var(--line); }
 .brand { display: flex; align-items: center; gap: 12px; font-size: .78rem; letter-spacing: .3em; font-weight: 700; white-space: nowrap; }
 .brand img { width: 30px; height: 31px; }
 .nav ul { display: flex; gap: clamp(16px, 2.2vw, 34px); }
@@ -313,7 +314,7 @@ section { position: relative; }
 .f-a { grid-column: span 8; aspect-ratio: 16/9; }
 .f-b { grid-column: span 4; min-height: 100%; }
 .f-c { grid-column: span 4; aspect-ratio: 16/9; }
-.fm { position: fixed; inset: 0; z-index: 210; background: rgba(250,247,241,.98); display: grid; place-items: center; padding: 70px var(--pad) 40px; opacity: 0; transition: opacity .5s var(--ease); }
+.fm { position: fixed; inset: 0; z-index: 210; background: rgba(255,255,255,.98); display: grid; place-items: center; padding: 70px var(--pad) 40px; opacity: 0; transition: opacity .5s var(--ease); }
 .fm.show { opacity: 1; }
 .fm-box { width: min(1200px, 100%); }
 .fm-box .vid { position: relative; aspect-ratio: 16/9; background: #000; }
@@ -425,8 +426,8 @@ section { position: relative; }
 .fld label { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; color: var(--muted); }
 .fld input, .fld select, .fld textarea { width: 100%; font: inherit; font-size: 1.05rem; color: var(--off); background: transparent; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 10px 0 12px; transition: border-color .3s; -webkit-appearance: none; appearance: none; }
 .fld select { background-image: linear-gradient(45deg, transparent 50%, var(--off) 50%), linear-gradient(135deg, var(--off) 50%, transparent 50%); background-position: calc(100% - 12px) 55%, calc(100% - 6px) 55%; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 26px; }
-.fld select option { background: #111; color: var(--off); }
-.fld input[type="date"] { color-scheme: dark; }
+.fld select option { background: #fff; color: var(--off); }
+.fld input[type="date"] { color-scheme: light; }
 .fld textarea { min-height: 130px; resize: vertical; }
 .fld input:focus, .fld select:focus, .fld textarea:focus { outline: none; border-color: var(--champ); }
 .fld.bad input, .fld.bad select, .fld.bad textarea { border-color: #d9826f; }
